@@ -17,7 +17,7 @@ class Ship {
 }
 
 // create the player's ship: USS HelloWorld, with the required specs
-const USS_HelloWorld = new Ship(20, 5, 0.7);
+let USS_HelloWorld = new Ship(20, 5, 0.7);
 
 // create a function to get a random integer between 2 values, inclusive
 const getRandomIntInclusive = (min, max) => {
@@ -27,7 +27,7 @@ const getRandomIntInclusive = (min, max) => {
 }
 
 // create a factory to make and store alien ships
-class AlienShips {
+class AlienFleet {
     constructor() {
         this.alienShips = [];
     }
@@ -39,13 +39,16 @@ class AlienShips {
         // alien accuracy needs to be between 0.6 and 0.8, inclusive
         let accuracy = Math.random() * (0.81 - 0.6) + 0.6;
         accuracy = accuracy.toFixed(2);
+        // create the alien ship
+        let newAlienShip = new Ship(hull, firepower, accuracy);
         // add the new ship to the array of ships
-        this.alienShips.push({hull, firepower, accuracy});
+        this.alienShips.push(newAlienShip);
     }
 }
 
 // generate the array of alien ships
-let enemyShipHorde = new AlienShips();
+let alienFleet = new AlienFleet();
 for (let i = 0; i <= NUM_ALIEN_SHIPS; i++) {
-    enemyShipHorde.addAlienShip();
+    alienFleet.addAlienShip();
 }
+console.log(alienFleet);
