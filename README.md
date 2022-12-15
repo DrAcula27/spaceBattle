@@ -7,7 +7,8 @@
 <p>Earth has been attacked by a horde of aliens! You are the captain of the USS HelloWorld, on a mission to destroy every last alien ship.</p>
 <p>Battle the aliens as you try to destroy them with your lasers.</p>
 <p>There are six alien ships. The aliens' weakness is that they are too logical and attack one at a time: they will wait to see the outcome of a battle before deploying another alien ship. Your strength is that you have the initiative and get to attack first. However, you do not have targeting lasers and can only attack the aliens in order. After you have destroyed a ship, you have the option to make a hasty retreat.</p>
-<p>The HTML should show the starting and CURRENT hull of the ships, and show which ships have been destroyed.</p>
+<p>The HTML should show the starting and final hull of the ships.</p>
+<p>After the game, prompt the user to let them know if they won or lost, and ask if they would like to play again.</p>
 
 <h4>A game round looks like this:</h4>
 <ol>
@@ -15,8 +16,6 @@
   <li>If the ship survives, it attacks you (update your ship in html).</li>
   <li>If you survive, you attack the ship again.</li>
   <li>If it survives, it attacks you again … etc.</li>
-  <li>If you destroy the ship, you have the option to attack the next ship or to retreat (ship destroyed in html).</li>
-  <li>If you retreat, the game is over, perhaps leaving the game open for further developments or options.</li>
   <li>You win the game if you destroy all of the aliens.</li>
   <li>You lose the game if you are destroyed.</li>
 </ol>

@@ -1,6 +1,13 @@
 // set global variables
 const NUM_ALIEN_SHIPS = 6;
 
+// DOM initializations
+const fightBtn = document.getElementById("fight");
+const playerShip = document.getElementById("player-ship");
+const playerShipHull = document.getElementById("player-ship-hull");
+const aliens = document.getElementById("aliens");
+const alienShipHull = document.getElementsByClassName("alien-ship-hull");
+
 // create a Ship class for making the player's ship
 class Ship {
     constructor(hull, firepower, accuracy) {
@@ -14,7 +21,7 @@ class Ship {
         }
     }
     retreat() {
-        
+        window.location.reload();
     }
 }
 
@@ -43,7 +50,7 @@ class AlienFleet {
         let accuracy = Math.random() * (0.81 - 0.6) + 0.6;
         accuracy = accuracy.toFixed(2);
         // create the alien ship
-        let newAlienShip = new Ship(hull, firepower, accuracy);
+        let newAlienShip = new Ship(hull, firepower, +accuracy);
         // add the new ship to the array of ships
         this.alienShips.push(newAlienShip);
     }
@@ -53,10 +60,24 @@ class AlienFleet {
 let alienFleet = new AlienFleet();
 for (let i = 1; i <= NUM_ALIEN_SHIPS; i++) {
     alienFleet.addAlienShip();
+    aliens.innerHTML += `
+        <div class="alien-ship">
+            <img src="./images/enemy_ship.png" alt="alien ship">
+            <h2 class="alien-ship-title">Alien</h2>
+            <h3>Hull: <span class="alien-ship-hull">0</span></h3>
+        </div>
+    `;
 }
 
-// commence space battle!
-// create main game function
+// update alien ship hull
+const alienHullUpdate = () => {
+    for (let i = 0; i < NUM_ALIEN_SHIPS; i++) {
+        alienShipHull[i].innerHTML = alienFleet.alienShips[i].hull;
+    }
+}
+alienHullUpdate();
+
+// have player fight each alien one at a time
 const spaceBattle = () => {
     let aliens = alienFleet.alienShips;
     // loop through the array of alien ships
@@ -64,8 +85,10 @@ const spaceBattle = () => {
         // check if player's ship is destroyed (hull damage reaches 0)
         if (USS_HelloWorld.hull <= 0) {
             USS_HelloWorld.hull = 0;
-            window.alert("Your ship has been destroyed! GAME OVER");
             USS_HelloWorld.attacking = false;
+            openEndGameModal();
+            displayEndGameMessage();
+            restartGame();
             break;
         }
         // player and alien fight it out until one of them is destroyed
@@ -73,22 +96,19 @@ const spaceBattle = () => {
         while (notDestroyed) {
             // player has advantage, and gets to go first
             USS_HelloWorld.attack(aliens[i]);
+            // update alien hull in HTML page
+            alienHullUpdate();
             // check if alien is destroyed
             if (aliens[i].hull <= 0) {
                 // set hull to 0; you can't have a negative health!
                 aliens[i].hull = 0;
-                // if alien is destroyed, ask player if they want to continue
-                let playerResponse = window.prompt(`You destroyed alien ship ${+[i]+1}!\nWould you like to continue battling?\nPress 'y' to continue.`);
-                // if player does not want to continue, end the game
-                if (playerResponse.toLowerCase() !== "y") {
-                    USS_HelloWorld.attacking = false;
-                    USS_HelloWorld.retreat();
-                }
                 // end attack cycle
                 break;
             }
             // alien ship attacks player
             aliens[i].attack(USS_HelloWorld);
+            // update USS_HelloWorld hull in HTML page
+            playerShipHull.innerHTML = USS_HelloWorld.hull;
             // check if player ship destroyed
             if (USS_HelloWorld.hull <= 0) {
                 // set hull to 0; you can't have a negative health!
@@ -97,22 +117,53 @@ const spaceBattle = () => {
                 break;
             }
         }
+        checkWinner();
     }
 }
-spaceBattle();
 
-// code from class:
-// let myShip = document.getElementById('my-ship');
+//check for a winner: wether player destroyed
+const checkWinner = () => {
+    if (USS_HelloWorld.hull > 0) {
+        openEndGameModal();
+        displayEndGameMessage();
+        restartGame();
+    }
+}
 
-// console.log(myShip);
+//end of game modal initializations
+const endGameModal = document.getElementById("endGameModal");
+const endGameModalTitle = document.getElementById("endGameModalTitle");
+const modalOverlay = document.getElementById("modalOverlay");
+const restartButton = document.getElementById("restartButton");
 
-// myShip.addEventListener('click', () => {
-//     let shipHullElement = document.getElementById('my-ship-hull');
-//     console.log(shipHullElement);
-//     // we pretend the enemy ship attacks
-//     let currentHull = +shipHullElement.innerText;
-//     // the enemy ship hit for 3 damage
-//     let enemyDamage = 3;
-//     let finalHull = currentHull - enemyDamage;
-//     shipHullElement.innerText = finalHull;
-// });
+//pop open the modal with overlay
+const openEndGameModal = () => {
+    endGameModal.classList.add("active");
+    modalOverlay.classList.add("active");
+}
+
+//populate modal title
+const displayEndGameMessage = () => {
+    return USS_HelloWorld.hull > 0
+    ? (endGameModalTitle.textContent = `You've defeated all ${NUM_ALIEN_SHIPS} aliens!\n And you still have ${USS_HelloWorld.hull} hull left!`)
+    : (endGameModalTitle.textContent = `Your ship was destroyed! GAME OVER`);
+}
+
+//restart the game
+const restartGame = () => {
+    restartButton.addEventListener("click", () => {
+        window.location.reload();
+    });
+}
+
+// commence battle!
+fightBtn.addEventListener("click", () => {
+    // hide fight button
+    fightBtn.classList.add("hidden");
+    // show player ship
+    playerShip.classList.remove("hidden");
+    // show alien ships
+    aliens.classList.remove("hidden");
+    // loop until player destroyed or all alien ships destroyed
+    spaceBattle();
+});
