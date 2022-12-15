@@ -8,16 +8,19 @@ class Ship {
         this.firepower = firepower;
         this.accuracy = accuracy;
     }
-    attack() {
-
+    attack(ship) {
+        if (Math.random() < this.accuracy) {
+            ship.hull -= this.firepower;
+        }
     }
     retreat() {
-
+        
     }
 }
 
 // create the player's ship: USS HelloWorld, with the required specs
 let USS_HelloWorld = new Ship(20, 5, 0.7);
+USS_HelloWorld.attacking = true;
 
 // create a function to get a random integer between 2 values, inclusive
 const getRandomIntInclusive = (min, max) => {
@@ -48,7 +51,68 @@ class AlienFleet {
 
 // generate the array of alien ships
 let alienFleet = new AlienFleet();
-for (let i = 0; i <= NUM_ALIEN_SHIPS; i++) {
+for (let i = 1; i <= NUM_ALIEN_SHIPS; i++) {
     alienFleet.addAlienShip();
 }
-console.log(alienFleet);
+
+// commence space battle!
+// create main game function
+const spaceBattle = () => {
+    let aliens = alienFleet.alienShips;
+    // loop through the array of alien ships
+    for (let i = 0; i < aliens.length; i++) {
+        // check if player's ship is destroyed (hull damage reaches 0)
+        if (USS_HelloWorld.hull <= 0) {
+            USS_HelloWorld.hull = 0;
+            window.alert("Your ship has been destroyed! GAME OVER");
+            USS_HelloWorld.attacking = false;
+            break;
+        }
+        // player and alien fight it out until one of them is destroyed
+        let notDestroyed = true;
+        while (notDestroyed) {
+            // player has advantage, and gets to go first
+            USS_HelloWorld.attack(aliens[i]);
+            // check if alien is destroyed
+            if (aliens[i].hull <= 0) {
+                // set hull to 0; you can't have a negative health!
+                aliens[i].hull = 0;
+                // if alien is destroyed, ask player if they want to continue
+                let playerResponse = window.prompt(`You destroyed alien ship ${+[i]+1}!\nWould you like to continue battling?\nPress 'y' to continue.`);
+                // if player does not want to continue, end the game
+                if (playerResponse.toLowerCase() !== "y") {
+                    USS_HelloWorld.attacking = false;
+                    USS_HelloWorld.retreat();
+                }
+                // end attack cycle
+                break;
+            }
+            // alien ship attacks player
+            aliens[i].attack(USS_HelloWorld);
+            // check if player ship destroyed
+            if (USS_HelloWorld.hull <= 0) {
+                // set hull to 0; you can't have a negative health!
+                USS_HelloWorld.hull = 0;
+                // end attack cycle
+                break;
+            }
+        }
+    }
+}
+spaceBattle();
+
+// code from class:
+// let myShip = document.getElementById('my-ship');
+
+// console.log(myShip);
+
+// myShip.addEventListener('click', () => {
+//     let shipHullElement = document.getElementById('my-ship-hull');
+//     console.log(shipHullElement);
+//     // we pretend the enemy ship attacks
+//     let currentHull = +shipHullElement.innerText;
+//     // the enemy ship hit for 3 damage
+//     let enemyDamage = 3;
+//     let finalHull = currentHull - enemyDamage;
+//     shipHullElement.innerText = finalHull;
+// });

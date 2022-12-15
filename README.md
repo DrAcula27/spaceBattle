@@ -41,3 +41,6 @@
   <li>firepower - between 2 and 4</li>
   <li>accuracy - between 0.6 and 0.8</li>
 </ul>
+
+<h3>Credits:</h3>
+<p>Background image is from <a href="www.DesktopBackground.org" target="_blank">DesktopBackground.org</a>.</p>
