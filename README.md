@@ -43,3 +43,7 @@
 
 <h3>Credits:</h3>
 <p>Background image is from <a href="www.DesktopBackground.org" target="_blank">DesktopBackground.org</a>.</p>
+
+<h3>Bonus Features</h3>
+<p>The aliens send a random number of ships to attack Earth. Think of a reasonable range and implement it.</p>
+<p>When the game is over, prompt the user if they would like to play again, and make it so the user can play again with all the values set back to default.</p>
