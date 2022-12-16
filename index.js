@@ -1,5 +1,12 @@
+// create a function to get a random integer between 2 values, inclusive
+const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 // set global variables
-const NUM_ALIEN_SHIPS = 6;
+const NUM_ALIEN_SHIPS = getRandomIntInclusive(3, 10);
 
 // DOM initializations
 const fightBtn = document.getElementById("fight");
@@ -28,13 +35,6 @@ class Ship {
 // create the player's ship: USS HelloWorld, with the required specs
 let USS_HelloWorld = new Ship(20, 5, 0.7);
 USS_HelloWorld.attacking = true;
-
-// create a function to get a random integer between 2 values, inclusive
-const getRandomIntInclusive = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 // create a factory to make and store alien ships
 class AlienFleet {
