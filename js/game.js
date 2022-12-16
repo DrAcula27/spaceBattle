@@ -163,9 +163,3 @@ startGameBtn.addEventListener("click", () => {
     // loop until player destroyed or all alien ships destroyed
     spaceBattle();
 });
-
-// bet back to homepage
-homeBtn.addEventListener("click", () => {
-    // redirect to index.html
-    window.location.href = "../index.html";
-});
