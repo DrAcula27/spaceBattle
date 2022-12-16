@@ -8,8 +8,19 @@ const getRandomIntInclusive = (min, max) => {
 // set global variables
 const NUM_ALIEN_SHIPS = getRandomIntInclusive(3, 10);
 
+// start game modal initializations
+const fightBtn = document.getElementById("fightBtn");
+const startGameModal = document.getElementById("startGameModal");
+const modalOverlay = document.getElementById("modalOverlay");
+
+//pop open the start game modal with overlay
+const openStartGameModal = () => {
+    startGameModal.classList.add("active");
+    modalOverlay.classList.add("active");
+}
+openStartGameModal();
+
 // DOM initializations
-const fightBtn = document.getElementById("fight");
 const playerShip = document.getElementById("player-ship");
 const playerShipHull = document.getElementById("player-ship-hull");
 const aliens = document.getElementById("aliens");
@@ -133,10 +144,9 @@ const checkWinner = () => {
 //end of game modal initializations
 const endGameModal = document.getElementById("endGameModal");
 const endGameModalTitle = document.getElementById("endGameModalTitle");
-const modalOverlay = document.getElementById("modalOverlay");
 const restartButton = document.getElementById("restartButton");
 
-//pop open the modal with overlay
+//pop open the end game modal with overlay
 const openEndGameModal = () => {
     endGameModal.classList.add("active");
     modalOverlay.classList.add("active");

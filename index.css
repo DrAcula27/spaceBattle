@@ -86,19 +86,54 @@ h1 {
     flex: 1 1 auto;
 }
 
-button {
-    color: var(--yellow);
-    background-color: var(--secondary-dark);
-    border: 2px solid var(--burgandy);
-    border-radius: 1em;
-    font-size: 3em;
-    padding: 0.5em 1em;
-    font-weight: bold;
+#fightBtn {
+  background-color: var(--white);
+  border: 0 solid var(--black);
+  color: var(--burgandy);
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-5deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-button:hover {
-    cursor: pointer;
-    box-shadow: 5px 5px 8px var(--yellow);
+#fightBtn:focus {
+  outline: 0;
+}
+
+#fightBtn:after {
+  content: '';
+  position: absolute;
+  border: 3px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+#fightBtn:hover:after {
+  bottom: 2px;
+  left: 2px;
+  box-shadow: 5px 5px 8px var(--burgandy);
+}
+
+@media (min-width: 768px) {
+  #fightBtn {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+  }
 }
 
 #player-ship, #aliens {
@@ -147,25 +182,28 @@ button:hover {
     color: var(--burgandy);
 }
 
-/* end game modal */
-.end-game-modal {
+/* game modals */
+.end-game-modal, .start-game-modal {
     position: fixed;
     z-index: 1;
     top: 50%;
     left: 50%;
     width: 300px;
     padding: 30px;
-    border-radius: 10px;
-    background-color: var(--secondary-dark);
-    box-shadow: 0 0 1rem var(--yellow);
-    text-align: center;
-    font-size: 30px;
     user-select: none;
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
 }
 
-.end-game-modal.active {
+.end-game-modal {
+    border-radius: 10px;
+    background-color: var(--secondary-dark);
+    box-shadow: 0 0 1rem var(--yellow);
+    text-align: center;
+    font-size: 30px;
+}
+
+.end-game-modal.active, .start-game-modal.active {
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -198,5 +236,3 @@ button:hover {
 .modal-overlay.active {
     display: block;
 }
-
-/*media queries*/
