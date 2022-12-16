@@ -16,7 +16,7 @@ const modalOverlay = document.getElementById("modalOverlay");
 //pop open the start game modal with overlay
 const openStartGameModal = () => {
     startGameModal.classList.add("active");
-    modalOverlay.classList.add("active");
+    // modalOverlay.classList.add("active");
 }
 openStartGameModal();
 
@@ -72,8 +72,8 @@ let alienFleet = new AlienFleet();
 for (let i = 1; i <= NUM_ALIEN_SHIPS; i++) {
     alienFleet.addAlienShip();
     aliens.innerHTML += `
-        <div class="alien-ship">
-            <img src="./images/enemy_ship.png" alt="alien ship">
+        <div id="alien${i}" class="alien-ship">
+            <img id="alienImg${i}" src="./images/enemy_ship.png" alt="alien ship">
             <h2 class="alien-ship-title">Alien</h2>
             <h3>Hull: <span class="alien-ship-hull">0</span></h3>
         </div>
@@ -113,6 +113,9 @@ const spaceBattle = () => {
             if (aliens[i].hull <= 0) {
                 // set hull to 0; you can't have a negative health!
                 aliens[i].hull = 0;
+                // mark the ship as destroyed
+                const alienImage = document.getElementById(`alienImg${i+1}`);
+                alienImage.src  = "./images/enemy_ship_dead.png";
                 // end attack cycle
                 break;
             }

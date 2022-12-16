@@ -42,7 +42,7 @@
 </ul>
 
 <h3>Credits:</h3>
-<p>Background image is from <a href="www.DesktopBackground.org" target="_blank">DesktopBackground.org</a>.</p>
+<p>Background design is from <a href="https://medium.com/@jensaxena/css-tutorial-animated-geometric-galaxy-background-ad3835c36ce1" target="_blank">Jen Saxena at Medium.com</a>.</p>
 
 <h3>Bonus Features</h3>
 <p>The aliens send a random number of ships to attack Earth. Think of a reasonable range and implement it.</p>
