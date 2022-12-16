@@ -1,4 +1,4 @@
-# spaceBattle_consoleGame
+# spaceBattle
 
 <h2>Per Scholas - Week 4 - CSS&JS Concepts - Project: Space Battle</h2>
 
