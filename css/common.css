@@ -1,0 +1,123 @@
+/*set color global variables*/
+:root {
+    --primary-dark: #323232;
+    --primary-light: #ede1d1;
+    --secondary-dark: #525e75;
+    --secondary-light: #fefefe;
+    --burgandy: #a82727;
+    --black: #000000;
+    --white: #ffffff;
+}
+
+/* use custom font */
+@font-face {
+  font-family: Emulogic;
+  src: url(../fonts/Emulogic-zrEw.ttf);
+}
+
+/*css reset*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/*footer support*/
+html { 
+  position: relative;
+  min-height: 100vh;
+}
+
+/*overall document settings*/
+body {
+    background-color: var(--primary-dark); /* in case gradient bg doesn't work */
+    background: radial-gradient(circle at bottom, navy 0, black 100%);
+    color: var(--primary-light);
+    font-family: Emulogic, 'Monospace', sans-serif;
+}
+
+/*header*/
+h1 {
+    line-height: 1.2;
+}
+
+#header {
+    padding: 30px 0;
+}
+  
+.title {
+    text-align: center;
+    font-size: 60px;
+}
+
+.glow {
+    font-size: 60px;
+    color: var(--burgandy);
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px var(--white),
+                   0 0 20px var(--white),
+                   0 0 30px var(--burgandy),
+                   0 0 40px var(--burgandy),
+                   0 0 50px var(--burgandy);
+    }
+    to {
+      text-shadow: 0 0 20px var(--white),
+                   0 0 30px var(--secondary-dark),
+                   0 0 40px var(--secondary-dark),
+                   0 0 50px var(--secondary-dark),
+                   0 0 60px var(--secondary-dark);
+    }
+}
+
+button {
+    font-family: inherit;
+    padding: 20px 40px;
+    border: 5px inset var(--burgandy);
+    border-radius: 10px;
+    background-color: var(--secondary-light);
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 5px var(--secondary-light);
+}
+
+/*footer*/
+#footer {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    height: 2em;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.fa-github, .fa-heart, .fa-linkedin {
+    color: var(--primary-light);
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+  
+.fa-github:hover, .fa-linkedin:hover {
+    transform: rotateY(360deg) scale(1.4);
+    color: var(--burgandy);
+}
+
+.fa-heart:hover {
+    transform: scale(1.3);
+    color: var(--burgandy);
+}
