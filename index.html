@@ -13,8 +13,9 @@
     />
     <!-- animated icon -->
     <link rel="icon" type="image/x-icon" href="./images/spaceBattle.ico" />
-    <link rel="stylesheet" href="./index.css" />
-    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js" defer></script>
     <!--font-awesome import for icons-->
     <script
       src="https://kit.fontawesome.com/940af2685d.js"
@@ -29,21 +30,7 @@
       <h1 class="title glow">SPACE BATTLE</h1>
     </header>
     <main id="main">
-      <div class="start-game-modal" id="startGameModal">
-        <button id="fightBtn">Fight!</button>
-      </div>
-      <!-- player ship -->
-      <div id="player-ship" class="hidden">
-        <img src="./images/USS_Ship.png" alt="USS HelloWorld ship" />
-        <div class="ship-data">
-          <h2 id="player-ship-title">USS HelloWorld</h2>
-          <h3>Hull: <span id="player-ship-hull">20</span></h3>
-        </div>
-      </div>
-      <!-- aliens -->
-      <div id="aliens" class="hidden">
-        <!-- empty div to be filled in with JavaScript -->
-      </div>
+      <a href="./html/game.html"><button id="fightBtn">Fight!</button></a>
     </main>
     <footer id="footer">
       <p>
@@ -61,10 +48,5 @@
         <i class="fa-brands fa-linkedin"></i>
       </a>
     </footer>
-    <div class="end-game-modal" id="endGameModal">
-      <p class="end-game-modal-title" id="endGameModalTitle"></p>
-      <button class="restart-button" id="restartButton">Battle Again</button>
-    </div>
-    <div class="modal-overlay" id="modalOverlay"></div>
   </body>
 </html>
