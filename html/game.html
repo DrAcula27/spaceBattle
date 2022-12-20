@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space Battle!</title>
-    <!-- static icon -->
+    <!-- static icon for all browsers -->
     <link
       rel="shortcut icon"
       type="image/x-icon"
       href="../images/staticSpaceBattle.ico"
     />
-    <!-- animated icon -->
+    <!-- animated icon for FireFox -->
     <link rel="icon" type="image/x-icon" href="../images/spaceBattle.ico" />
+    <!-- css -->
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/game.css" />
+    <!-- js -->
     <script src="../js/game.js" defer></script>
     <!--font-awesome import for icons-->
     <script
@@ -26,6 +28,7 @@
     <header id="header">
       <h1 class="title glow">SPACE BATTLE</h1>
     </header>
+
     <main id="main" class="space">
       <!-- battlefield -->
       <div id="battlefield">
@@ -48,6 +51,7 @@
         <a href="../index.html"><button id="homeBtn">Abandon Ship!</button></a>
       </div>
     </main>
+
     <footer id="footer">
       <p>
         ©
@@ -64,6 +68,7 @@
         <i class="fa-brands fa-linkedin"></i>
       </a>
     </footer>
+    <!-- end game modal and overlay, initial display: none -->
     <div class="end-game-modal" id="endGameModal">
       <p class="end-game-modal-title" id="endGameModalTitle"></p>
       <button class="restart-button" id="restartButton">Battle Again</button>

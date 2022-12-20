@@ -1,3 +1,14 @@
+/*set global variables (css custom properties) */
+:root {
+    --primary-dark: #323232;
+    --primary-light: #ede1d1;
+    --secondary-dark: #525e75;
+    --secondary-light: #fefefe;
+    --burgandy: #a82727;
+    --black: #000000;
+    --white: #ffffff;
+}
+
 /*main body*/
 #main {
     display: flex;
@@ -46,9 +57,6 @@
     user-select: none;
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
-}
-
-.end-game-modal {
     border-radius: 10px;
     background-color: var(--secondary-dark);
     box-shadow: 0 0 1em var(--burgandy);
@@ -56,7 +64,7 @@
     font-size: 2em;
 }
 
-.end-game-modal.active, .start-game-modal.active {
+.end-game-modal.active {
     transform: translate(-50%, -50%) scale(1);
 }
 

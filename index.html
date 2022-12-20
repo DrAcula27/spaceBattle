@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space Battle!</title>
-    <!-- static icon -->
+    <!-- static icon for all browsers -->
     <link
       rel="shortcut icon"
       type="image/x-icon"
       href="./images/staticSpaceBattle.ico"
     />
-    <!-- animated icon -->
+    <!-- animated icon for FireFox -->
     <link rel="icon" type="image/x-icon" href="./images/spaceBattle.ico" />
+    <!-- css -->
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <!-- js -->
     <script src="./js/index.js" defer></script>
     <!--font-awesome import for icons-->
     <script
@@ -23,15 +25,22 @@
     ></script>
   </head>
   <body>
+    <!-- for rotating space background -->
     <div class="space stars1"></div>
     <div class="space stars2"></div>
     <div class="space stars3"></div>
+
     <header id="header">
       <h1 class="title glow">SPACE BATTLE</h1>
     </header>
+
     <main id="main">
-      <a href="./html/game.html"><button id="fightBtn">Fight!</button></a>
+      <div id="welcomeMessage"></div>
+      <a href="./html/game.html"
+        ><button id="fightBtn" class="hidden">Fight!</button></a
+      >
     </main>
+
     <footer id="footer">
       <p>
         ©

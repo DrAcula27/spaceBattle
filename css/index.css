@@ -1,3 +1,14 @@
+/*set global variables (css custom properties) */
+:root {
+  --primary-dark: #323232;
+  --primary-light: #ede1d1;
+  --secondary-dark: #525e75;
+  --secondary-light: #fefefe;
+  --burgandy: #a82727;
+  --black: #000000;
+  --white: #ffffff;
+}
+
 /* hide overflow of rotating background */
 body {
   overflow: hidden;
@@ -119,6 +130,7 @@ body {
       );
 }
 
+/* make background rotate */
 @keyframes space {
     40% {
       opacity: 0.75;
@@ -134,6 +146,31 @@ body {
     }
 }
 
+/*main body*/
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3em;
+  margin-bottom: 2em;
+  max-width: 100vw;
+  padding: 2em;
+  position: relative;
+}
+
+#welcomeMessage {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  white-space: pre-wrap;
+  color: var(--white);
+}
+
+.hidden {
+  display: none;
+}
+
 /* button */
 a, a:visited {
   text-decoration: none;
@@ -147,10 +184,11 @@ a, a:visited {
   font-size: clamp(1.25em, 1.5vw, 2em);
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.75rem;
+  line-height: 1.5rem;
   position: fixed;
   top: 50%;
-  left: calc(50% - 150px);
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   width: 300px;
   user-select: none;
@@ -161,14 +199,6 @@ a, a:visited {
 
 #fightBtn:hover {
   box-shadow: 5px 5px 8px var(--burgandy);
-  transform: scale(1.25);
-}
-
-/*main body*/
-#main {
-  margin-bottom: 2em;
-  max-width: 100vw;
-  padding: 2em;
 }
 
 /* media queries */

@@ -1,4 +1,4 @@
-/*set color global variables*/
+/*set global variables (css custom properties) */
 :root {
     --primary-dark: #323232;
     --primary-light: #ede1d1;
