@@ -141,60 +141,39 @@ a, a:visited {
 
 #fightBtn {
   background-color: var(--white);
-  border: 0 solid var(--black);
+  border: 3px solid var(--black);
   color: var(--burgandy);
-  display: flex;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: clamp(1.25em, 1.5vw, 2em);
   font-weight: 700;
   text-transform: uppercase;
-  justify-content: center;
   line-height: 1.75rem;
-  padding: .75rem 1.65rem;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 150px);
   text-align: center;
-  width: 100%;
-  max-width: 460px;
-  position: relative;
-  transform: rotate(-5deg);
+  width: 300px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  transition: 0.2s ease-in-out;
 }
 
-#fightBtn:focus {
-  outline: 0;
-}
-
-#fightBtn:after {
-  content: '';
-  position: absolute;
-  border: 3px solid #000000;
-  bottom: 4px;
-  left: 4px;
-  width: calc(100% - 1px);
-  height: calc(100% - 1px);
-}
-
-#fightBtn:hover:after {
-  bottom: 2px;
-  left: 2px;
+#fightBtn:hover {
   box-shadow: 5px 5px 8px var(--burgandy);
-}
-
-@media (min-width: 768px) {
-  #fightBtn {
-    padding: .75rem 3rem;
-    font-size: 1.25rem;
-  }
+  transform: scale(1.25);
 }
 
 /*main body*/
 #main {
-  position: absolute;
-  top: 50%;
-  left: calc(50% - 120px);
   margin-bottom: 2em;
   max-width: 100vw;
   padding: 2em;
+}
+
+/* media queries */
+@media (max-width: 850px) {
+  #footer > p {
+    display: none;
+  }
 }
