@@ -14,6 +14,10 @@ const playerShipHull = document.getElementById("player-ship-hull");
 const aliens = document.getElementById("aliens");
 const alienShipHull = document.getElementsByClassName("alien-ship-hull");
 const startGameBtn = document.getElementById("startGameBtn");
+const backgroundMusic = document.getElementById("spaceSound");
+
+// set volume to 10%
+backgroundMusic.volume = 0.1;
 
 // create a Ship class for making the player's ship
 class Ship {

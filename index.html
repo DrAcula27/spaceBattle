@@ -25,15 +25,8 @@
     ></script>
   </head>
   <body>
-    <!-- sound -->
-    <audio
-      id="soundControls"
-      src="./sounds/8-bit-space.wav"
-      controls
-      autoplay
-      muted
-      loop
-    ></audio>
+    <!-- theme music controls -->
+    <audio id="spaceSound" src="./sounds/8-bit-space.wav" controls loop></audio>
 
     <!-- rotating space background -->
     <div class="space stars1"></div>
@@ -47,7 +40,7 @@
     <main id="main">
       <div id="welcomeMessage"></div>
       <a href="./html/game.html"
-        ><button id="fightBtn" class="hidden">Start</button></a
+        ><button id="startBtn" class="hidden">Start</button></a
       >
     </main>
 

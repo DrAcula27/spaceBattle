@@ -1,7 +1,10 @@
 // start game modal initializations
-const fightBtn = document.getElementById("fightBtn");
+const startBtn = document.getElementById("startBtn");
 const startGameModal = document.getElementById("startGameModal");
 const backgroundMusic = document.getElementById("spaceSound");
+
+// set volume to 10%
+backgroundMusic.volume = 0.1;
 
 // add intro message one character at a time, to simulate typing
 const typeText = (div, message, len) => {
@@ -17,7 +20,7 @@ welcomeContainer.appendChild(div);
 typeText(div, "Welcome, Captain.\n\nEarth is being attacked by a horde of aliens.\n\nWill you help save the Earth?", 0);
 
 // commence battle!
-fightBtn.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
     // redirect to game.html
     window.location.href = "./html/game.html";
 });

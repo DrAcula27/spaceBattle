@@ -172,7 +172,7 @@ a, a:visited {
   text-decoration: none;
 }
 
-#fightBtn {
+#startBtn {
   background-color: var(--white);
   border: 3px solid var(--black);
   color: var(--burgandy);
@@ -193,7 +193,7 @@ a, a:visited {
   transition: 0.2s ease-in-out;
 }
 
-#fightBtn:hover {
+#startBtn:hover {
   box-shadow: 5px 5px 8px var(--burgandy);
 }
 
