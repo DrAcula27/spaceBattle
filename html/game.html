@@ -34,7 +34,11 @@
       <div id="battlefield">
         <!-- player ship -->
         <div id="player-ship" class="hidden">
-          <img src="../images/USS_Ship.png" alt="USS HelloWorld ship" />
+          <img
+            id="playerShipImg"
+            src="../images/USS_Ship.png"
+            alt="USS HelloWorld ship"
+          />
           <div class="ship-data">
             <h2 id="player-ship-title">USS HelloWorld</h2>
             <h3>Hull: <span id="player-ship-hull">20</span></h3>
@@ -47,9 +51,10 @@
       </div>
       <!-- game buttons -->
       <div id="gameBtns">
-        <button id="startGameBtn">START!</button>
+        <button id="startGameBtn">Fight!</button>
         <a href="../index.html"><button id="homeBtn">Abandon Ship!</button></a>
       </div>
+      <audio src="../sounds/8-bit-space.wav" controls autoplay loop></audio>
     </main>
 
     <footer id="footer">

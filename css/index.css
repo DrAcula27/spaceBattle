@@ -167,10 +167,6 @@ body {
   color: var(--white);
 }
 
-.hidden {
-  display: none;
-}
-
 /* button */
 a, a:visited {
   text-decoration: none;
@@ -199,6 +195,22 @@ a, a:visited {
 
 #fightBtn:hover {
   box-shadow: 5px 5px 8px var(--burgandy);
+}
+
+/* audio controls */
+audio {
+  position: relative;
+  z-index: 1;
+}
+/* change color of audio controls for webkit browsers */
+audio::-webkit-media-controls-panel {
+  background-color: rgba(128, 0, 128, 0.5);
+}
+/* change color of audio controls for FireFox */
+@-moz-document url-prefix() {
+  audio {
+    background-color: rgba(128, 0, 128, 1);
+  }
 }
 
 /* media queries */

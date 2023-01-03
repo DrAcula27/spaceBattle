@@ -34,6 +34,14 @@
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
+img[id*="alien"] {
+    max-width: 200px;
+}
+
+#playerShipImg {
+    max-width: 450px;
+}
+
 #battlefield {
     display: flex;
     justify-content: space-between;

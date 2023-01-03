@@ -42,7 +42,11 @@
 </ul>
 
 <h3>Credits:</h3>
-<p>Background design is from <a href="https://medium.com/@jensaxena/css-tutorial-animated-geometric-galaxy-background-ad3835c36ce1" target="_blank">Jen Saxena at Medium.com</a>.</p>
+<ul>
+  <li>Background design is from <a href="https://medium.com/@jensaxena/css-tutorial-animated-geometric-galaxy-background-ad3835c36ce1" target="_blank">Jen Saxena at Medium.com</a>.</li>
+  <li>Sounds are from <a href="https://freesound.org" target="_blank">freesound.org</a>.</li>
+  <li>Images are from <a href="https://freesound.org" target="_blank">Pixel Starships Wiki</a> and <a href="https://gifer.com/en/gifs/explosion" target="_blank">gifer.com</a>.</li>
+</ul>
 
 <h3>Bonus Features</h3>
 <p>The aliens send a random number of ships to attack Earth. Think of a reasonable range and implement it.</p>

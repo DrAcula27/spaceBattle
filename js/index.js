@@ -1,11 +1,7 @@
 // start game modal initializations
 const fightBtn = document.getElementById("fightBtn");
 const startGameModal = document.getElementById("startGameModal");
-
-// to show fight button
-const showHidden = () => {
-    fightBtn.classList.remove("hidden");
-}
+const backgroundMusic = document.getElementById("spaceSound");
 
 // add intro message one character at a time, to simulate typing
 const typeText = (div, message, len) => {
@@ -19,9 +15,6 @@ let div = document.createElement("div");
 let welcomeContainer = document.getElementById("welcomeMessage");
 welcomeContainer.appendChild(div);
 typeText(div, "Welcome, Captain.\n\nEarth is being attacked by a horde of aliens.\n\nWill you help save the Earth?", 0);
-
-// after intro message is done displaying, show fight button
-showHidden();
 
 // commence battle!
 fightBtn.addEventListener("click", () => {

@@ -86,6 +86,8 @@ const spaceBattle = () => {
         if (USS_HelloWorld.hull <= 0) {
             USS_HelloWorld.hull = 0;
             USS_HelloWorld.attacking = false;
+            const playerDeadImg = document.getElementById("playerShipImg");
+            playerDeadImg.src = "../images/enemy_ship_dead.png";
             openEndGameModal();
             displayEndGameMessage();
             restartGame();
