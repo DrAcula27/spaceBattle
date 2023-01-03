@@ -49,5 +49,8 @@
 </ul>
 
 <h3>Bonus Features</h3>
-<p>The aliens send a random number of ships to attack Earth. Think of a reasonable range and implement it.</p>
-<p>When the game is over, prompt the user if they would like to play again, and make it so the user can play again with all the values set back to default.</p>
+<ul>
+  <li>The aliens send a random number of ships to attack Earth. Think of a reasonable range and implement it.</li>
+  <li>When the game is over, prompt the user if they would like to play again, and make it so the user can play again with all the values set back to default.</li>
+  <li>Scientists have improved your ship's shields. They don't work that consistently, and only improve your hit points by a random number each time you click the recharge button. Recharging allows the aliens to attack you first.</li>
+</ul>

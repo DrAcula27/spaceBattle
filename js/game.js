@@ -14,6 +14,7 @@ const playerShipHull = document.getElementById("player-ship-hull");
 const aliens = document.getElementById("aliens");
 const alienShipHull = document.getElementsByClassName("alien-ship-hull");
 const attackBtn = document.getElementById("attackBtn");
+const rechargeBtn = document.getElementById("rechargeBtn");
 const backgroundMusic = document.getElementById("spaceSound");
 
 // set volume to 10%
@@ -21,23 +22,26 @@ backgroundMusic.volume = 0.1;
 
 // create a Ship class for making the player's ship
 class Ship {
-  constructor(hull, firepower, accuracy) {
+  constructor(hull, firepower, accuracy, rechargeProbability) {
     this.hull = hull;
     this.firepower = firepower;
     this.accuracy = accuracy;
+    this.rechargeProbability = rechargeProbability;
   }
   attack(enemy) {
     if (Math.random() < this.accuracy) {
       enemy.hull -= this.firepower;
     }
   }
-  retreat() {
-    window.location.reload();
+  recharge() {
+    if (Math.random() < this.rechargeProbability) {
+        this.hull += getRandomIntInclusive(1, 5);
+    }
   }
 }
 
 // create the player's ship: USS HelloWorld, with the required specs
-let USS_HelloWorld = new Ship(20, 5, 0.7);
+let USS_HelloWorld = new Ship(20, 5, 0.7, 0.5);
 USS_HelloWorld.attacking = true;
 
 // create a factory to make and store alien ships
@@ -54,7 +58,7 @@ class AlienFleet {
     let accuracy = Math.random() * (0.81 - 0.6) + 0.6;
     accuracy = accuracy.toFixed(2);
     // create the alien ship
-    let newAlienShip = new Ship(hull, firepower, +accuracy);
+    let newAlienShip = new Ship(hull, firepower, +accuracy, null);
     // add the new ship to the array of ships
     this.alienShips.push(newAlienShip);
   }
@@ -75,7 +79,6 @@ for (let i = 1; i <= NUM_ALIEN_SHIPS; i++) {
 
 // gives access to the array of alien ships
 const aliensArray = alienFleet.alienShips;
-console.log(aliensArray.length);
 
 // update alien fleet hull values
 for (let i = 0; i < NUM_ALIEN_SHIPS; i++) {
@@ -177,3 +180,16 @@ attackBtn.addEventListener("click", () => {
 });
 
 // if player clicks the recharge button:
+rechargeBtn.addEventListener("click", () => {
+    // only recharge if hull is less than starting amount
+    if (USS_HelloWorld.hull < 20) {
+        // attempt to recharge player hull by a random amount
+        USS_HelloWorld.recharge();
+        // update USS_HelloWorld hull in HTML page
+        playerShipHull.innerHTML = USS_HelloWorld.hull;
+        // allow an alien attack
+        aliensArray[0].attack(USS_HelloWorld);
+    } else {
+        alert("Your hull is already at max!");
+    }
+});
