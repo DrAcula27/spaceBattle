@@ -38,16 +38,16 @@ body {
 
 /*header*/
 h1 {
-    line-height: 1.2;
+    padding: 30px 0;
+    font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
 }
 
 #header {
-    padding: 30px 0;
+    line-height: 1.2;
 }
   
 .title {
     text-align: center;
-    font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
 }
 
 .glow {
