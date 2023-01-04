@@ -48,15 +48,21 @@
   <li>Images are from <a href="https://pixelstarships.fandom.com/wiki/Category:Faction" target="_blank">Pixel Starships Wiki</a> and <a href="https://gifer.com/en/gifs/explosion" target="_blank">gifer.com</a>.</li>
 </ul>
 
-<h3>Bonus Features</h3>
+<h3>Bonus Features:</h3>
 <ul>
   <li>The aliens send a random number of ships to attack Earth. Think of a reasonable range and implement it.</li>
   <li>When the game is over, prompt the user if they would like to play again, and make it so the user can play again with all the values set back to default.</li>
   <li>Scientists have improved your ship's shields. They don't work that consistently, and only improve your hit points by a random number each time you click the recharge button. Recharging allows the aliens to attack you first.</li>
 </ul>
 
-<h3>Future Work</h3>
+<h3>Future Work:</h3>
 <ul>
+  <li>Game Quality Improvements:</li>
+    <ul>
+      <li>Custom theme music controls</li>
+      <li>Slow down and add shooting lasers to the individual battles</li>
+      <li>Add a captain's log - to include number of aliens left to kill, player ship stats, etc.</li>
+    </ul>
   <li>Scientists have developed a super targeting computer for your lasers. You now are asked which of the aliens you would like to hit with your lasers.</li>
   <li>Scientists have put missiles on your ship. You only have a limited number of them, but they do a lot of damage. You can say before each battle if you want to use one of your missles.</li>
   <li>The aliens have gained emotions and now can attack more than one at a time.</li>
