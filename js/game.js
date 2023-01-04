@@ -31,6 +31,8 @@ class Ship {
   attack(enemy) {
     if (Math.random() < this.accuracy) {
       enemy.hull -= this.firepower;
+      let laserSound = new Audio("../sounds/8-bit-laser.wav");
+      laserSound.play();
     }
   }
   recharge() {
@@ -41,7 +43,7 @@ class Ship {
 }
 
 // create the player's ship: USS HelloWorld, with the required specs
-let USS_HelloWorld = new Ship(20, 5, 0.7, 0.5);
+let USS_HelloWorld = new Ship(20, 5, 0.7, 0.8);
 USS_HelloWorld.attacking = true;
 
 // create a factory to make and store alien ships

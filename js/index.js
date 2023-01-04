@@ -1,10 +1,6 @@
 // start game modal initializations
 const startBtn = document.getElementById("startBtn");
 const startGameModal = document.getElementById("startGameModal");
-const backgroundMusic = document.getElementById("spaceSound");
-
-// set volume to 10%
-backgroundMusic.volume = 0.1;
 
 // add intro message one character at a time, to simulate typing
 const typeText = (div, message, len) => {
