@@ -187,10 +187,16 @@ rechargeBtn.addEventListener("click", () => {
     if (USS_HelloWorld.hull < 20) {
         // attempt to recharge player hull by a random amount
         USS_HelloWorld.recharge();
+        if (USS_HelloWorld.hull > 20) {
+            USS_HelloWorld.hull = 20;
+        }
         // update USS_HelloWorld hull in HTML page
         playerShipHull.innerHTML = USS_HelloWorld.hull;
         // allow an alien attack
         aliensArray[0].attack(USS_HelloWorld);
+        // update USS_HelloWorld hull in HTML page, again
+        playerShipHull.innerHTML = USS_HelloWorld.hull;
+        checkWinner();
     } else {
         alert("Your hull is already at max!");
     }
